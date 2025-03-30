@@ -7,8 +7,6 @@ async function fetchData() {
     const besjed = "Data er hentet";
     return besjed;
 }
-
-
 // OPPGAVE 2:
 // Steg 1: Lag en async funskjon som heter dataRecieved
 // Steg 2: Lag en variabel som bruker await for å ta i mot funksjonen getData
@@ -57,11 +55,10 @@ responseData.forEach((item)=>{
     const displayFact = document.querySelector("#displayCatFact");
 
     displayFact.appendChild(viewCatFact);
-
 });
 }
 
-fetchApi();
+setTimeout(fetchApi,3000,);
 
 // Hele arrayet
 // Vi finner data array, array med objects
@@ -73,3 +70,18 @@ fetchApi();
 //VI LAGER EN CHUCK NORRIS KNAPP
 
 //API-link: https://api.chucknorris.io/jokes/random
+
+const ChuckBtn = document.querySelector('#ChuckBtn');
+const ChuckText = document.querySelector('#ChuckText');
+
+async function ChuckNorrisApi() {
+    const response = await fetch('//api.chucknorris.io/jokes/random');
+    console.log(response);
+    let data = await response.json();
+    console.log(data);
+    ChuckText.textContent = data.value;
+}
+
+ChuckBtn.addEventListener('click', function () {
+    ChuckNorrisApi();
+  });

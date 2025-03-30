@@ -44,6 +44,7 @@ section {
   align-items: center;
   border: 2px solid black;
   width: 800px;
+  color: blue;
 }
 
 .pokeCard img {
