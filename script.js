@@ -44,8 +44,9 @@ console.log(response.data[0].fact);
 
 const responseData = response.data
 
-responseData.forEach((item)=>{
-    const factItem = item.fact
+for(let i=0; i<responseData.length;i++){
+
+    const factItem = responseData[i].fact
     console.log(factItem);
 //Lage en p-element til HTML
     const viewCatFact = document.createElement("p");
@@ -55,10 +56,12 @@ responseData.forEach((item)=>{
     const displayFact = document.querySelector("#displayCatFact");
 
     displayFact.appendChild(viewCatFact);
-});
+    await new Promise(resolve=>setTimeout(resolve,3000))
 }
 
-setTimeout(fetchApi,3000,);
+}
+
+fetchApi();
 
 // Hele arrayet
 // Vi finner data array, array med objects
